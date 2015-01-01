@@ -3,7 +3,7 @@
 import random
 
 # Constants
-version = "0.2.0"
+version = "0.5.0"
 
 # functions
 def init():
@@ -30,7 +30,7 @@ def train(state):
   if evolve_state == "Hatched":
     l = random.randint(0,20)
     r = random.randint(0,20)
-    ans = raw_input("What is "+str(l)+" times "+str(r)+"?")
+    ans = raw_input("What is "+str(l)+" times "+str(r)+"?\n")
     try:
       if l*r == int(ans):
         print "YOU SUCCESSFULLY EVOLVED!"
