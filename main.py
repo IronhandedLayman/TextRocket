@@ -39,6 +39,11 @@ def train(state):
         print "You are terrible at math! Try again."
     except:
       print "That's not a number! You're an IDIOT."
+  elif evolve_state == "Adolescent" and state["elevation"]==100:
+      print "You are in the right spot. EVOLVING!"
+      state["evolution"] = "Mature"
+  elif evolve_state == "Adolescent":
+      print "You are NOT in the right spot. Try again later!" 
   else:
     print "You cannot evolve further."
 
@@ -47,9 +52,13 @@ def myEval(state, command):
   if command == "TRAIN":
     train(state)
     state["ended"] = False
-  elif state["evolution"] == "Adolescent" and (command == "WIN" or command == "SUCCEED"):
+  elif state["evolution"] in ["Adolescent", "Mature"] and (command == "WIN" or command == "SUCCEED"):
     state["ended"] = True
     state["ending"] = "WIN"
+  elif command == "FLY":
+    print "You are now above the ground!"
+    state["elevation"] = 100
+    state["ended"] = False
   elif command == "CORRECT" or command == "sorta":
     state["ended"] = True
     state["ending"] = "DRAW"
