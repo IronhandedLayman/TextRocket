@@ -3,7 +3,7 @@
 import random
 
 # Constants
-version = "0.5.0"
+version = "0.6.0"
 
 # functions
 def init():
@@ -56,9 +56,12 @@ def myEval(state, command):
     state["ended"] = True
     state["ending"] = "WIN"
   elif command == "FLY":
-    print "You are now above the ground!"
-    state["elevation"] = 100
-    state["ended"] = False
+    if state["evolution"] == "Adolescent":
+      print "You are now above the ground!"
+      state["elevation"] = 100
+      state["ended"] = False
+    else:
+      print "You Shall Not Pass!"
   elif command == "CORRECT" or command == "sorta":
     state["ended"] = True
     state["ending"] = "DRAW"
