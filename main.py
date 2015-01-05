@@ -52,7 +52,7 @@ def myEval(state, command):
   if command == "TRAIN":
     train(state)
     state["ended"] = False
-  elif state["evolution"] in ["Adolescent", "Mature"] and (command == "WIN" or command == "SUCCEED"):
+  elif state["evolution"] in ["Mature"] and (command == "WIN" or command == "SUCCEED"):
     state["ended"] = True
     state["ending"] = "WIN"
   elif command == "FLY":
